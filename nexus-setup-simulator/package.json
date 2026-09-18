@@ -1,0 +1,45 @@
+{
+  "name": "nexus-setup-simulator",
+  "version": "1.0.0",
+  "description": "Visual setup wizard simulator. Does not install or download anything.",
+  "main": "main.js",
+  "author": "Halcyon Works",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win portable",
+    "dist:nsis": "electron-builder --win nsis"
+  },
+  "devDependencies": {
+    "electron": "^32.2.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "works.halcyon.nexus.setup",
+    "productName": "Nexus Setup",
+    "copyright": "Copyright © Halcyon Works",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "src/**/*",
+      "assets/**/*"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        }
+      ],
+      "icon": "assets/icon.png",
+      "artifactName": "NexusSetup-${version}-portable.exe"
+    },
+    "nsis": {
+      "oneClick": true,
+      "artifactName": "NexusSetup-${version}-setup.exe"
+    }
+  }
+}

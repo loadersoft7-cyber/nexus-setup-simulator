@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nexus Setup</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="window">
+    <header class="titlebar" id="titlebar">
+      <div class="titlebar-left">
+        <span class="titlebar-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="14" height="14">
+            <path d="M12 3.2L20 8v8l-8 4.8L4 16V8l8-4.8z" fill="none" stroke="currentColor" stroke-width="1.6"/>
+            <circle cx="12" cy="12" r="2.1" fill="currentColor"/>
+          </svg>
+        </span>
+        <span class="titlebar-label">Nexus Setup</span>
+      </div>
+      <div class="titlebar-controls">
+        <button class="win-btn" id="btnMin" title="Minimize" aria-label="Minimize">
+          <svg viewBox="0 0 10 10"><path d="M1 5h8" /></svg>
+        </button>
+        <button class="win-btn" id="btnMax" title="Maximize" aria-label="Maximize">
+          <svg viewBox="0 0 10 10"><rect x="1.5" y="1.5" width="7" height="7" /></svg>
+        </button>
+        <button class="win-btn win-btn-close" id="btnClose" title="Close" aria-label="Close">
+          <svg viewBox="0 0 10 10"><path d="M2 2l6 6M8 2L2 8" /></svg>
+        </button>
+      </div>
+    </header>
+
+    <nav class="stepper" aria-label="Setup steps">
+      <div class="step" data-step="0">
+        <span class="step-dot"></span>
+        <span class="step-name">WELCOME</span>
+      </div>
+      <div class="step-line"></div>
+      <div class="step" data-step="1">
+        <span class="step-dot"></span>
+        <span class="step-name">OPTIONS</span>
+      </div>
+      <div class="step-line"></div>
+      <div class="step" data-step="2">
+        <span class="step-dot"></span>
+        <span class="step-name">INSTALL</span>
+      </div>
+      <div class="step-line"></div>
+      <div class="step" data-step="3">
+        <span class="step-dot"></span>
+        <span class="step-name">DONE</span>
+      </div>
+    </nav>
+
+    <main class="stage">
+      <!-- WELCOME -->
+      <section class="panel" id="panel-welcome">
+        <div class="hero">
+          <div class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 88 88" width="72" height="72">
+              <defs>
+                <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#f0c27a"/>
+                  <stop offset="100%" stop-color="#c9843a"/>
+                </linearGradient>
+              </defs>
+              <polygon points="44,6 78,24 78,64 44,82 10,64 10,24" fill="none" stroke="url(#g1)" stroke-width="2.4"/>
+              <circle cx="44" cy="44" r="7" fill="#f0c27a"/>
+              <ellipse cx="44" cy="44" rx="20" ry="8" fill="none" stroke="#f0c27a" stroke-width="1.6" opacity="0.85"/>
+              <ellipse cx="44" cy="44" rx="20" ry="8" fill="none" stroke="#f0c27a" stroke-width="1.6" opacity="0.55" transform="rotate(60 44 44)"/>
+              <ellipse cx="44" cy="44" rx="20" ry="8" fill="none" stroke="#c9843a" stroke-width="1.4" opacity="0.4" transform="rotate(120 44 44)"/>
+            </svg>
+          </div>
+          <h1 class="wordmark">Nexus <em>Setup</em></h1>
+          <p class="lede">
+            A single wizard for any workstation. Shape the layout, review the
+            options, and finish in a couple of minutes — one window, no extras.
+          </p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" id="btnStart">Start setup</button>
+            <button class="btn btn-ghost" id="btnIncluded">What’s included</button>
+          </div>
+        </div>
+
+        <aside class="pkg-card" aria-label="Package details">
+          <div class="pkg-label">PACKAGE DETAILS</div>
+          <div class="pkg-grid">
+            <div>
+              <div class="pkg-k">PUBLISHER</div>
+              <div class="pkg-v" id="pkgPublisher">Halcyon Works</div>
+            </div>
+            <div>
+              <div class="pkg-k">BUILD VERSION</div>
+              <div class="pkg-v" id="pkgVersion">—</div>
+            </div>
+            <div>
+              <div class="pkg-k">SIZE</div>
+              <div class="pkg-v" id="pkgSize">—</div>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <!-- OPTIONS -->
+      <section class="panel hidden" id="panel-options">
+        <div class="section-head">
+          <div class="mini-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22">
+              <polygon points="12,2 22,8 22,16 12,22 2,16 2,8" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="12" cy="12" r="2" fill="currentColor"/>
+            </svg>
+          </div>
+          <div>
+            <h2>Installation settings</h2>
+            <p>Choose the destination folder and optional components.</p>
+          </div>
+        </div>
+
+        <div class="settings-card">
+          <div class="settings-col">
+            <div class="field-label">INSTALLATION DIRECTORY</div>
+            <label class="path-field">
+              <span class="folder-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="16" height="16">
+                  <path d="M3 7h6l2 2h10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                </svg>
+              </span>
+              <input type="text" id="installPath" spellcheck="false" />
+            </label>
+          </div>
+          <div class="settings-col">
+            <div class="field-label">COMPONENTS</div>
+            <label class="check">
+              <input type="checkbox" id="optShortcut" checked />
+              <span class="box"></span>
+              Create desktop shortcut
+            </label>
+            <label class="check">
+              <input type="checkbox" id="optAutostart" />
+              <span class="box"></span>
+              Launch at system start
+            </label>
+            <label class="check">
+              <input type="checkbox" id="optPath" checked />
+              <span class="box"></span>
+              Add to PATH
+            </label>
+          </div>
+        </div>
+
+        <label class="check license-row">
+          <input type="checkbox" id="optLicense" checked />
+          <span class="box"></span>
+          I agree to the license terms
+        </label>
+
+        <div class="footer-row">
+          <button class="btn btn-ghost" id="btnBackWelcome">Back</button>
+          <div class="footer-right">
+            <button class="btn btn-ghost" id="btnCancelOptions">Cancel</button>
+            <button class="btn btn-primary" id="btnInstall">Install</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- INSTALL -->
+      <section class="panel hidden" id="panel-install">
+        <div class="install-card">
+          <div class="install-top">
+            <div>
+              <h2>Installing Nexus</h2>
+              <p class="path-echo" id="pathEcho"></p>
+            </div>
+            <div class="eta" id="etaLabel">
+              <span class="eta-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="14" height="14">
+                  <circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                  <path d="M12 8v5l3 2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                </svg>
+              </span>
+              ETA —
+            </div>
+          </div>
+
+          <div class="phase-row">
+            <span id="phaseName">Preparing</span>
+            <span id="phasePct">0%</span>
+          </div>
+          <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <div class="bar-fill" id="barFill"></div>
+          </div>
+
+          <div class="stat-row">
+            <div class="stat">
+              <div class="stat-k">SPEED</div>
+              <div class="stat-v" id="statSpeed">0.0 MB/s</div>
+            </div>
+            <div class="stat">
+              <div class="stat-k">COMPLETED</div>
+              <div class="stat-v" id="statDone">0 / 0 MB</div>
+            </div>
+            <div class="stat">
+              <div class="stat-k">STATUS</div>
+              <div class="stat-v" id="statStatus">Working</div>
+            </div>
+          </div>
+
+          <div class="log">
+            <div class="log-head">
+              <span>LOG</span>
+              <span id="logCount">0 ENTRIES</span>
+            </div>
+            <div class="log-body" id="logBody"></div>
+          </div>
+
+          <div class="install-actions">
+            <button class="btn btn-ghost" id="btnPause">Pause</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- DONE -->
+      <section class="panel hidden" id="panel-done">
+        <div class="done-hero">
+          <div class="success-ring" aria-hidden="true">
+            <svg viewBox="0 0 72 72" width="72" height="72">
+              <circle cx="36" cy="36" r="30" fill="none" stroke="#6ee7b7" stroke-width="2.4" opacity="0.85"/>
+              <path d="M22 37l9 9 19-20" fill="none" stroke="#6ee7b7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h1 class="wordmark done-title">Installation <em>complete</em></h1>
+          <p class="lede">
+            Nexus is ready to use. Shortcuts and settings were configured
+            according to the choices you made on the previous step.
+          </p>
+
+          <div class="summary-card">
+            <div class="sum-row">
+              <span>Installed to</span>
+              <strong id="sumPath">—</strong>
+            </div>
+            <div class="sum-row">
+              <span>Version</span>
+              <strong id="sumVersion">—</strong>
+            </div>
+            <div class="sum-row">
+              <span>Install time</span>
+              <strong id="sumTime">—</strong>
+            </div>
+            <div class="sum-row">
+              <span>Package size</span>
+              <strong id="sumSize">—</strong>
+            </div>
+            <div class="sum-row">
+              <span>Integrity check</span>
+              <strong class="ok" id="sumIntegrity">Passed</strong>
+            </div>
+          </div>
+
+          <div class="hero-actions">
+            <button class="btn btn-primary" id="btnLaunch">Launch Nexus</button>
+            <button class="btn btn-ghost" id="btnCloseDone">Close</button>
+          </div>
+          <button class="linkish" id="btnReplay">Run setup again</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="overlay hidden" id="includedModal">
+    <div class="sheet">
+      <div class="sheet-head">
+        <h3>What’s included</h3>
+        <button class="btn btn-ghost" id="btnCloseIncluded">Close</button>
+      </div>
+      <ul class="include-list">
+        <li>
+          <strong>Core runtime</strong>
+          <span>Local engine and workspace shell. Nothing is fetched from the network.</span>
+        </li>
+        <li>
+          <strong>Desktop companion</strong>
+          <span>Shortcut, start-menu entry, and optional PATH registration.</span>
+        </li>
+        <li>
+          <strong>CLI helpers</strong>
+          <span>Command palette tools used by the workspace.</span>
+        </li>
+        <li>
+          <strong>Docs pack</strong>
+          <span>Offline reference and first-run notes.</span>
+        </li>
+      </ul>
+      <p class="sheet-note">This wizard is a visual setup simulation. It does not write files or download packages.</p>
+    </div>
+  </div>
+
+  <div class="overlay hidden" id="launchToast">
+    <div class="toast">
+      <strong>Simulation only</strong>
+      <p>Nexus was not installed and nothing was launched. This window only demonstrates the setup flow.</p>
+      <button class="btn btn-primary" id="btnToastOk">Got it</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
